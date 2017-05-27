@@ -25,3 +25,7 @@ Queue.prototype.peek = function(){
     return null;
   }
 }
+
+Queue.prototype.getLength = function(){
+  return this.queue.length;
+}
