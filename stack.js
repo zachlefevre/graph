@@ -11,7 +11,7 @@ Stack.prototype.push = function(value_){
 Stack.prototype.pop = function(){
   if(this.stack.length){
     var toPop = this.stack[this.stack.length-1];
-    this.stack.shift();
+    this.stack.pop();
     return toPop;
   }else{
     return null;

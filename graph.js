@@ -50,9 +50,11 @@ Graph.prototype.search = function(from, to, dtype){
     nodeFrom.searched = true;
     while(toSearch.getLength() > 0){
       current = toSearch.pop();
+      console.log(current);
       if(current == nodeTo){
         solutionArr = g.getParentArr(current);
         g.reset();
+        break;
       }else{
         for(var i = 0; i < current.edges.length; i++){
           if(!current.edges[i].searched){
