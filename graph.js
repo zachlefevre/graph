@@ -40,8 +40,8 @@ Graph.prototype.getParentArr = function(node){
   return retArr.reverse();
 }
 
-Graph.prototype.bfs = function(from, to){
-  var toSearch = new Queue();
+Graph.prototype.search = function(from, to, dtype){
+  var toSearch = dtype;
   var solutionArr = []
   nodeFrom = this.getNode(from);
   nodeTo = this.getNode(to);

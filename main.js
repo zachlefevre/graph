@@ -13,6 +13,7 @@ function init(){
   g.addEdge(8,7);
   g.addNode(4)
   g.addEdge(4,5)
-  var path = g.bfs(4,8);
+
+  var path = g.search(4,8, new Stack);
   console.log("path", path);
 }

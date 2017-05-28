@@ -4,6 +4,7 @@ function Queue(){
   this.queue = [];
 }
 
+
 Queue.prototype.push = function(value_){
   this.queue.push(value_);
 }
