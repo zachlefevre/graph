@@ -1,3 +1,4 @@
+console.log("bstree.js loaded")
 /*
 node.edges[0] = parent
 node.edges[1] = left
