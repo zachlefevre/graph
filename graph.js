@@ -4,19 +4,24 @@ function Graph()
   this.nodes = [];
 }
 
-Graph.prototype.addNode = function(value_)
-{
-  var n = new Node(value_);
-  this.nodes.push(n);
-}
 
-Graph.prototype.getNode = function(node_){
+Graph.prototype.getNode = function(value_){
   for(var i = 0; i < this.nodes.length; i++){
-    if(this.nodes[i].getVal() == node_){
+    if(this.nodes[i].getVal() == value_){
       return this.nodes[i];
     }
   }
   return null;
+}
+
+Graph.prototype.addNode = function(value_)
+{
+  n = this.getNode(value_);
+  if(n == null){
+    var n = new Node(value_);
+    this.nodes.push(n);
+  }
+  return n
 }
 
 Graph.prototype.addEdge = function(val1_, val2_)
@@ -52,12 +57,12 @@ Graph.prototype.search = function(from, to, dtype){
       current = toSearch.pop();
       console.log(current);
       if(current == nodeTo){
-        solutionArr = g.getParentArr(current);
-        g.reset();
+        solutionArr = this.getParentArr(current);
+        this.reset();
         break;
       }else{
         for(var i = 0; i < current.edges.length; i++){
-          if(!current.edges[i].searched){
+          if(current.edges[i]!= null && current.edges[i]!= undefined && !current.edges[i].searched){
             toSearch.push(current.edges[i])
             current.edges[i].searched = true;
             current.edges[i].parent = current;
