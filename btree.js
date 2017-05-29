@@ -14,7 +14,6 @@ function BTree(){
 BTree.prototype = new Graph();
 
 BTree.prototype.addNodeHelper = function(node, nodeToAdd){
-  console.log("in recCall")
   if(nodeToAdd.getVal() <= node.getVal()){
     if(node.edges[1] == null || node.edges[1] == undefined){
       node.edges[1] = nodeToAdd
