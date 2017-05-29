@@ -13,7 +13,8 @@ function BTree(){
 
 BTree.prototype = new Graph();
 
-BTree.prototype.addNodeHelper = function(node, nodeToAdd){
+BTree.prototype.addNodeHelper = function(node, nodeToAdd)
+{
   if(nodeToAdd.getVal() <= node.getVal()){
     if(node.edges[1] == null || node.edges[1] == undefined){
       node.edges[1] = nodeToAdd
@@ -31,7 +32,8 @@ BTree.prototype.addNodeHelper = function(node, nodeToAdd){
   }
 }
 
-BTree.prototype.addNode = function(val){
+BTree.prototype.addNode = function(val)
+{
   n = Graph.prototype.addNode.call(this,val)
   if(this.nodes[0] == n){
     this.nodes[0] = n
@@ -39,4 +41,11 @@ BTree.prototype.addNode = function(val){
   }else{
     return this.addNodeHelper(this.nodes[0], n)
   }
+}
+
+BTree.prototype.preorderHelper = function(){}
+
+BTree.prototype.preorder = function(){
+  retObj = [];
+
 }

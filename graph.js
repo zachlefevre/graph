@@ -5,7 +5,8 @@ function Graph()
 }
 
 
-Graph.prototype.getNode = function(value_){
+Graph.prototype.getNode = function(value_)
+{
   for(var i = 0; i < this.nodes.length; i++){
     if(this.nodes[i].getVal() == value_){
       return this.nodes[i];
@@ -37,7 +38,8 @@ Graph.prototype.addEdge = function(val1_, val2_)
   }
 }
 
-Graph.prototype.getParentArr = function(node){
+Graph.prototype.getParentArr = function(node)
+{
   var retArr = []
   for(var i = node; i != null; i = i.parent){
     retArr.push(i);
@@ -45,7 +47,8 @@ Graph.prototype.getParentArr = function(node){
   return retArr.reverse();
 }
 
-Graph.prototype.search = function(from, to, dtype){
+Graph.prototype.search = function(from, to, dtype)
+{
   var toSearch = dtype;
   var solutionArr = []
   nodeFrom = this.getNode(from);
@@ -55,7 +58,6 @@ Graph.prototype.search = function(from, to, dtype){
     nodeFrom.searched = true;
     while(toSearch.getLength() > 0){
       current = toSearch.pop();
-      console.log(current);
       if(current == nodeTo){
         solutionArr = this.getParentArr(current);
         this.reset();
@@ -74,7 +76,8 @@ Graph.prototype.search = function(from, to, dtype){
   return solutionArr;
 }
 
-Graph.prototype.reset = function(){
+Graph.prototype.reset = function()
+{
   for(var i = 0; i < this.nodes.length; i++){
     this.nodes[i].searched = false;
     this.nodes[i].parent = null;
